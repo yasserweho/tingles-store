@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order confirmed — Tingles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Syne:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="about">
+    <div class="kicker">Payment received</div>
+    <h1>You’re in.</h1>
+    <p id="note">Stripe confirmed this checkout. A receipt is on its way to the email you used.</p>
+    <p><a class="btn" href="shop.html">Keep shopping</a></p>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script>
+    chrome();
+    setCart([]);
+    const id = new URLSearchParams(location.search).get("session_id");
+    if (id) document.getElementById("note").textContent = "Stripe confirmed this checkout. Reference " + id + ". A receipt is on its way to the email you used.";
+  </script>
+</body>
+</html>

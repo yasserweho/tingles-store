@@ -13,9 +13,9 @@
     <div id="rows"></div>
     <div class="summary"><div class="summary-box">
       <div style="display:flex;justify-content:space-between"><span>Subtotal</span><strong id="sub">$0</strong></div>
-      <p style="color:var(--muted);font-size:14px">Shipping calculated at checkout. Demo checkout — no payment is taken.</p>
-      <button class="btn" id="checkout" style="width:100%">Checkout</button>
-      <p id="done" style="display:none">Order placed as a demo. Bag cleared.</p>
+      <p style="color:var(--muted);font-size:14px">Free shipping over $150. Card payment opens on Stripe.</p>
+      <button class="btn" id="checkout" style="width:100%">Checkout with Stripe</button>
+      <p id="done" style="display:none"></p>
     </div></div>
   </div>
   <script src="js/data.js"></script>
@@ -41,12 +41,38 @@
         setCart(getCart().map(x => x.key===b.dataset.u ? {...x, qty:x.qty+1} : x)); render();
       });
     }
-    document.getElementById("checkout").onclick = () => {
-      if (!getCart().length) return;
-      setCart([]);
-      document.getElementById("done").style.display = "block";
-      render();
+    document.getElementById("checkout").onclick = async () => {
+      const items = getCart();
+      const note = document.getElementById("done");
+      if (!items.length) {
+        note.style.display = "block";
+        note.textContent = "Add something before checkout.";
+        return;
+      }
+      const btn = document.getElementById("checkout");
+      btn.disabled = true;
+      btn.textContent = "Opening Stripe…";
+      note.style.display = "none";
+      try {
+        const res = await fetch("/api/checkout", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ items: items.map(i => ({ id: i.id, size: i.size, qty: i.qty })) })
+        });
+        const data = await res.json();
+        if (!res.ok || !data.url) throw new Error(data.error || "Checkout failed");
+        location.href = data.url;
+      } catch (err) {
+        note.style.display = "block";
+        note.textContent = err.message;
+        btn.disabled = false;
+        btn.textContent = "Checkout with Stripe";
+      }
     };
+    if (new URLSearchParams(location.search).get("canceled")) {
+      document.getElementById("done").style.display = "block";
+      document.getElementById("done").textContent = "Checkout canceled. Your bag is still here.";
+    }
     render();
   </script>
 </body>
