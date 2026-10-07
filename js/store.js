@@ -32,6 +32,7 @@ function chrome(active="") {
     <div class="announce">Free shipping on orders over $150 · <a href="shop.html">Shop the October edit</a></div>
     <header class="site">
       <div class="nav">
+        <a class="logo" href="index.html">TINGLES.com</a>
         <nav class="nav-left">
           ${links.map(([l,h]) => `<div class="nav-item"><a class="nav-link" href="${h}">${l}</a>
             <div class="mega"><div class="mega-grid">
@@ -47,7 +48,6 @@ function chrome(active="") {
           <button class="icon-btn" id="searchBtn" aria-label="Search">Search</button>
           <a class="icon-btn" href="about.html" aria-label="Account">Account</a>
           <a class="icon-btn" href="cart.html" aria-label="Bag">Bag <span class="bag-count"></span></a>
-          <a class="logo" href="index.html">TINGLES.com</a>
         </div>
       </div>
       <div class="search-panel" id="searchPanel">
@@ -69,7 +69,7 @@ function chrome(active="") {
     <footer class="site">
       <div class="foot-grid">
         <div>
-          <div class="logo">TINGLES</div>
+          <div class="logo">TINGLES.com</div>
           <p>Technical apparel for quiet effort. Designed in-house. Not affiliated with any other athletic brand.</p>
         </div>
         <div><h4>Shop</h4><a href="shop.html?gender=women">Women</a><br><a href="shop.html?gender=men">Men</a><br><a href="shop.html?gender=accessories">Accessories</a></div>

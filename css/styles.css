@@ -17,7 +17,7 @@ img { max-width: 100%; display: block; }
 header.site { position: sticky; top: 0; z-index: 40; background: #fff; border-bottom: 1px solid transparent; }
 header.site.scrolled { border-bottom-color: var(--line); }
 .nav { height: var(--nav); display: flex; align-items: center; gap: 18px; padding: 0 20px 0 24px; position: relative; }
-.logo { font-weight: 800; letter-spacing: .02em; font-size: 18px; white-space: nowrap; color: #111; line-height: 1; }
+.logo { font-weight: 400; letter-spacing: .04em; font-size: 18px; white-space: nowrap; color: #111; line-height: 1; }
 .nav-left { display: flex; align-items: center; gap: 18px; flex: 1; min-width: 0; overflow: hidden; }
 .nav-right { display: flex; align-items: center; gap: 14px; margin-left: auto; flex: 0 0 auto; background: #fff; z-index: 5; }
 .nav-link { font-size: 14px; font-weight: 500; padding: 22px 0; display: inline-block; }
