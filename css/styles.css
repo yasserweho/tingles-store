@@ -16,10 +16,10 @@ img { max-width: 100%; display: block; }
 .announce a { text-decoration: underline; }
 header.site { position: sticky; top: 0; z-index: 40; background: #fff; border-bottom: 1px solid transparent; }
 header.site.scrolled { border-bottom-color: var(--line); }
-.nav { height: var(--nav); display: flex; align-items: center; gap: 28px; padding: 0 28px; }
-.logo { font-weight: 700; letter-spacing: .08em; font-size: 16px; }
-.nav-left { display: flex; align-items: center; gap: 22px; flex: 1; }
-.nav-right { display: flex; align-items: center; gap: 16px; margin-left: auto; }
+.nav { height: var(--nav); display: flex; align-items: center; gap: 18px; padding: 0 20px 0 24px; position: relative; }
+.logo { font-weight: 800; letter-spacing: .02em; font-size: 18px; white-space: nowrap; color: #111; line-height: 1; }
+.nav-left { display: flex; align-items: center; gap: 18px; flex: 1; min-width: 0; overflow: hidden; }
+.nav-right { display: flex; align-items: center; gap: 14px; margin-left: auto; flex: 0 0 auto; background: #fff; z-index: 5; }
 .nav-link { font-size: 14px; font-weight: 500; padding: 22px 0; display: inline-block; }
 .nav-item { position: static; }
 .nav-item:hover .mega, .nav-item:focus-within .mega { display: block; }

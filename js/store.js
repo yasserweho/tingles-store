@@ -43,11 +43,11 @@ function chrome(active="") {
           </div>`).join("")}
         </nav>
         <div class="nav-right">
-          <a class="logo" href="index.html">TINGLES.com</a>
           <button class="icon-btn menu-toggle" aria-label="Menu">Menu</button>
           <button class="icon-btn" id="searchBtn" aria-label="Search">Search</button>
           <a class="icon-btn" href="about.html" aria-label="Account">Account</a>
           <a class="icon-btn" href="cart.html" aria-label="Bag">Bag <span class="bag-count"></span></a>
+          <a class="logo" href="index.html">TINGLES.com</a>
         </div>
       </div>
       <div class="search-panel" id="searchPanel">
