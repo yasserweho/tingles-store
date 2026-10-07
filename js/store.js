@@ -24,30 +24,37 @@ function chrome(active="") {
     ["Women", "shop.html?gender=women"],
     ["Men", "shop.html?gender=men"],
     ["Accessories", "shop.html?gender=accessories"],
+    ["Shoes", "shop.html?gender=accessories"],
     ["Activity", "shop.html"],
-    ["We Made Extra", "shop.html?sale=1"]
+    ["Markdowns", "shop.html?sale=1"]
   ];
   document.body.insertAdjacentHTML("afterbegin", `
     <div class="announce">Free shipping on orders over $150 · <a href="shop.html">Shop the October edit</a></div>
     <header class="site">
       <div class="nav">
-        <div class="nav-left">
+        <a class="logo" href="index.html">TINGLES</a>
+        <nav class="nav-left">
           ${links.map(([l,h]) => `<div class="nav-item"><a class="nav-link" href="${h}">${l}</a>
             <div class="mega"><div class="mega-grid">
-              <div><h4>Categories</h4><a href="shop.html?gender=women">Women</a><a href="shop.html?gender=men">Men</a><a href="shop.html?cat=leggings">Leggings</a><a href="shop.html?cat=jackets">Jackets</a></div>
+              <div><h4>Categories</h4><a href="shop.html?gender=women">Women</a><a href="shop.html?gender=men">Men</a><a href="shop.html?cat=leggings">Leggings</a><a href="shop.html?cat=jackets">Jackets</a><a href="shop.html?cat=hoodies">Hoodies</a></div>
               <div><h4>Activity</h4><a href="shop.html?activity=yoga">Yoga</a><a href="shop.html?activity=run">Run</a><a href="shop.html?activity=train">Train</a></div>
               <div><h4>Featured</h4><a href="product.html?id=cloudline">Cloudline Legging</a><a href="product.html?id=pace">Pace Shell</a><a href="shop.html?sale=1">Markdowns</a></div>
               <div><h4>Tingles</h4><a href="about.html">Our story</a><a href="about.html">Fabric</a><a href="cart.html">Bag</a></div>
             </div></div>
           </div>`).join("")}
-        </div>
-        <a class="logo" href="index.html">TINGLES</a>
+        </nav>
         <div class="nav-right">
           <button class="icon-btn menu-toggle" aria-label="Menu">Menu</button>
           <button class="icon-btn" id="searchBtn" aria-label="Search">Search</button>
+          <a class="icon-btn" href="about.html" aria-label="Account">Account</a>
           <a class="icon-btn" href="cart.html" aria-label="Bag">Bag <span class="bag-count"></span></a>
         </div>
       </div>
+      <div class="search-panel" id="searchPanel">
+        <input id="searchInput" placeholder="Search leggings, jackets, run..." />
+        <div id="searchHits"></div>
+      </div>
+    </header>
       <div class="search-panel" id="searchPanel">
         <input id="searchInput" placeholder="Search leggings, jackets, run..." />
         <div id="searchHits"></div>

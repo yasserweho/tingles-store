@@ -4,62 +4,81 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tingles — Technical apparel</title>
-  <meta name="description" content="Tingles is a premium athletic apparel store. Leggings, shells, and studio layers for yoga, run, and train." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Syne:wght@700&display=swap" rel="stylesheet" />
+  <meta name="description" content="Tingles technical apparel. Original store, not affiliated with any other athletic brand." />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <section class="hero">
-    <div class="hero-copy">
-      <div class="kicker">October edit</div>
-      <h1>Quiet the pace.</h1>
-      <p class="lede">Technical layers that feel like nothing and look like intention. Studio, street, and the long way home.</p>
-      <div class="cta-row">
-        <a class="btn" href="shop.html?gender=women">Shop women</a>
-        <a class="btn ghost" href="shop.html?gender=men">Shop men</a>
+  <div class="hero-wrap">
+    <section class="slide on" style="background-image:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.35)),url('images/yoga.jpg')">
+      <div class="slide-copy">
+        <h1>Quiet the pace.</h1>
+        <div class="cta-row">
+          <a class="btn" href="shop.html?gender=women">Shop women</a>
+          <a class="btn ghost" href="shop.html?activity=yoga">Shop yoga</a>
+        </div>
       </div>
-    </div>
-    <div class="hero-media" style="background-image:url('images/yoga.jpg')"></div>
-  </section>
-  <section class="section">
-    <div class="section-head"><h2>Shop by feeling</h2><a href="shop.html">View all</a></div>
-    <div class="tiles">
-      <a class="tile" href="shop.html?activity=yoga" style="background-image:url('images/yoga.jpg')"><span>Yoga</span></a>
-      <a class="tile" href="shop.html?activity=run" style="background-image:url('images/run.jpg')"><span>Run</span></a>
-      <a class="tile light" href="shop.html?cat=hoodies" style="background-image:url('images/hoodie.jpg')"><span>Rest</span></a>
-    </div>
-  </section>
-  <section class="section" style="padding-top:0">
-    <div class="section-head"><h2>New this week</h2><a href="shop.html">Shop new</a></div>
-    <div class="products" id="newGrid"></div>
-  </section>
-  <section class="band" style="background-image:linear-gradient(90deg,rgba(0,0,0,.45),rgba(0,0,0,.05)),url('images/run.jpg')">
+    </section>
+    <section class="slide" style="background-image:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.35)),url('images/dawn.jpg')">
+      <div class="slide-copy">
+        <h1>Built for the early miles.</h1>
+        <div class="cta-row">
+          <a class="btn" href="shop.html?gender=men">Shop men</a>
+          <a class="btn ghost" href="product.html?id=pace">Shop Pace Shell</a>
+        </div>
+      </div>
+    </section>
+    <section class="slide" style="background-image:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.28)),url('images/hoodie.jpg')">
+      <div class="slide-copy">
+        <h1>The after layer.</h1>
+        <div class="cta-row">
+          <a class="btn" href="shop.html?cat=hoodies">Shop hoodies</a>
+          <a class="btn ghost" href="shop.html">Shop all</a>
+        </div>
+      </div>
+    </section>
+    <div class="dots" id="dots"></div>
+  </div>
+
+  <div class="pair">
+    <a class="story" href="shop.html?gender=women&cat=jackets" style="background-image:url('images/cream-jacket.jpg')"><span>Women’s shells</span></a>
+    <a class="story" href="shop.html?gender=men&cat=jackets" style="background-image:url('images/shell.jpg')"><span>Men’s shells</span></a>
+  </div>
+
+  <div class="rail-head"><h2>New this week</h2><a href="shop.html">Shop all</a></div>
+  <div class="rail" id="newRail"></div>
+
+  <section class="band" style="background-image:linear-gradient(90deg,rgba(0,0,0,.4),rgba(0,0,0,.05)),url('images/run.jpg')">
     <div>
-      <div class="kicker">Men's run</div>
+      <div class="kicker">Run</div>
       <h2>Pace Shell</h2>
       <a class="btn" href="product.html?id=pace">Shop the jacket</a>
     </div>
   </section>
-  <section class="section">
-    <div class="section-head"><h2>The uniform</h2></div>
-    <div class="tiles">
-      <a class="tile" href="product.html?id=cloudline" style="background-image:url('images/leggings.jpg');min-height:320px"><span>Cloudline</span></a>
-      <a class="tile" href="product.html?id=northshell" style="background-image:url('images/cream-jacket.jpg');min-height:320px"><span>Northshell</span></a>
-      <a class="tile" href="shop.html" style="background-image:url('images/gallery.jpg');min-height:320px"><span>Lookbook</span></a>
-    </div>
-  </section>
+
+  <div class="section-head"><h2>Shop by activity</h2></div>
+  <div class="acts">
+    <a class="act" href="shop.html?activity=yoga" style="background-image:url('images/yoga.jpg')"><b>Yoga</b></a>
+    <a class="act" href="shop.html?activity=run" style="background-image:url('images/dawn.jpg')"><b>Run</b></a>
+    <a class="act" href="shop.html?activity=train" style="background-image:url('images/gallery.jpg')"><b>Train</b></a>
+    <a class="act" href="shop.html?cat=hoodies" style="background-image:url('images/hoodie.jpg')"><b>Rest</b></a>
+  </div>
+
   <script src="js/data.js"></script>
   <script src="js/store.js"></script>
   <script>
     chrome();
-    document.querySelector(".hero-media").style.backgroundImage = `url('${img("images/yoga.jpg")}')`;
-    const tiles = document.querySelectorAll(".tile");
-    ["yoga.jpg","run.jpg","hoodie.jpg"].forEach((f,i)=> tiles[i] && (tiles[i].style.backgroundImage = `url('${img("images/"+f)}')`));
-    const more = document.querySelectorAll(".section .tile");
-    ["leggings.jpg","cream-jacket.jpg","gallery.jpg"].forEach((f,i)=> more[i] && (more[i].style.backgroundImage = `url('${img("images/"+f)}')`));
-    document.querySelector(".band").style.backgroundImage = `linear-gradient(90deg,rgba(0,0,0,.45),rgba(0,0,0,.05)),url('${img("images/run.jpg")}')`;
-    document.getElementById("newGrid").innerHTML = TINGLES.products.slice(0, 4).map(card).join("");
+    const slides = [...document.querySelectorAll(".slide")];
+    const dots = document.getElementById("dots");
+    let i = 0;
+    dots.innerHTML = slides.map((_, n) => `<button class="${n===0?"on":""}" data-i="${n}"></button>`).join("");
+    function show(n) {
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, idx) => s.classList.toggle("on", idx === i));
+      dots.querySelectorAll("button").forEach((b, idx) => b.classList.toggle("on", idx === i));
+    }
+    dots.onclick = e => { if (e.target.dataset.i) show(+e.target.dataset.i); };
+    setInterval(() => show(i + 1), 6000);
+    document.getElementById("newRail").innerHTML = TINGLES.products.slice(0, 8).map(card).join("");
   </script>
 </body>
 </html>
