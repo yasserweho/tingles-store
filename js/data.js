@@ -1,0 +1,16 @@
+window.TINGLES = {
+  products: [
+    { id: "cloudline", name: "Cloudline High-Rise Legging", price: 98, gender: "women", activity: "yoga", cat: "leggings", colors: ["Black", "Espresso", "Sage"], img: "images/leggings.jpg", badge: "Bestseller", blurb: "Buttery four-way stretch with a held-in waistband. Made to disappear once you start moving." },
+    { id: "still", name: "Still Long-Sleeve Crop", price: 78, gender: "women", activity: "yoga", cat: "tops", colors: ["Sage", "Black", "Bone"], img: "images/yoga.jpg", badge: "New", blurb: "A light second-skin layer for studio mornings and cool commutes." },
+    { id: "drift", name: "Drift Oversized Hoodie", price: 128, gender: "women", activity: "train", cat: "hoodies", colors: ["Sand", "Black"], img: "images/hoodie.jpg", badge: "", blurb: "Heavy French terry, dropped shoulder, pocket deep enough for a phone and keys." },
+    { id: "northshell", name: "Northshell Crop Jacket", price: 168, gender: "women", activity: "run", cat: "jackets", colors: ["Cream", "Black"], img: "images/cream-jacket.jpg", badge: "Limited", blurb: "Wind-resistant shell with a clean cropped hem. Light enough to pack, sharp enough for the street." },
+    { id: "ease", name: "Ease Bike Short", price: 68, compare: 78, gender: "women", activity: "train", cat: "shorts", colors: ["Sand", "Black"], img: "images/hoodie.jpg", badge: "Sale", blurb: "Mid-thigh short with a soft inner short. Studio to sidewalk." },
+    { id: "pace", name: "Pace Shell Jacket", price: 148, gender: "men", activity: "run", cat: "jackets", colors: ["Charcoal", "Black"], img: "images/shell.jpg", badge: "New", blurb: "Quiet ripstop shell with a tall collar and two zip pockets. Built for dawn miles." },
+    { id: "runshort", name: "Run Short 7\"", price: 78, gender: "men", activity: "run", cat: "shorts", colors: ["Black", "Navy"], img: "images/shorts.jpg", badge: "", blurb: "Lightweight short with a split hem and a liner that stays put." },
+    { id: "rest", name: "Rest Heavyweight Hoodie", price: 118, gender: "men", activity: "train", cat: "hoodies", colors: ["Sand", "Espresso"], img: "images/gallery.jpg", badge: "", blurb: "The after-session layer. Brushed inside, clean outside." },
+    { id: "daytee", name: "Day Train Tee", price: 58, gender: "men", activity: "train", cat: "tops", colors: ["Black", "Bone"], img: "images/gallery.jpg", badge: "", blurb: "A precise crew with a bit of stretch so it does not cling when you warm up." },
+    { id: "belt", name: "Carry Run Belt", price: 38, gender: "accessories", activity: "run", cat: "accessories", colors: ["Black"], img: "images/shorts.jpg", badge: "", blurb: "Low-profile belt for a key, card, and gel. No bounce." },
+    { id: "mat", name: "Studio Mat 5mm", price: 88, gender: "accessories", activity: "yoga", cat: "accessories", colors: ["Bone", "Sage"], img: "images/yoga.jpg", badge: "", blurb: "Dense, grippy mat with a quiet surface. Wipes clean." },
+    { id: "bottle", name: "Tide Bottle 24oz", price: 42, gender: "accessories", activity: "train", cat: "accessories", colors: ["Bone", "Black"], img: "images/cream-jacket.jpg", badge: "", blurb: "Insulated bottle with a wide mouth. Keeps water cold through a long session." }
+  ]
+};

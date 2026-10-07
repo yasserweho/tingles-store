@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tingles — Technical apparel</title>
+  <meta name="description" content="Tingles is a premium athletic apparel store. Leggings, shells, and studio layers for yoga, run, and train." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Syne:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="kicker">October edit</div>
+      <h1>Quiet the pace.</h1>
+      <p class="lede">Technical layers that feel like nothing and look like intention. Studio, street, and the long way home.</p>
+      <div class="cta-row">
+        <a class="btn" href="shop.html?gender=women">Shop women</a>
+        <a class="btn ghost" href="shop.html?gender=men">Shop men</a>
+      </div>
+    </div>
+    <div class="hero-media" style="background-image:url('images/yoga.jpg')"></div>
+  </section>
+  <section class="section">
+    <div class="section-head"><h2>Shop by feeling</h2><a href="shop.html">View all</a></div>
+    <div class="tiles">
+      <a class="tile" href="shop.html?activity=yoga" style="background-image:url('images/yoga.jpg')"><span>Yoga</span></a>
+      <a class="tile" href="shop.html?activity=run" style="background-image:url('images/run.jpg')"><span>Run</span></a>
+      <a class="tile light" href="shop.html?cat=hoodies" style="background-image:url('images/hoodie.jpg')"><span>Rest</span></a>
+    </div>
+  </section>
+  <section class="section" style="padding-top:0">
+    <div class="section-head"><h2>New this week</h2><a href="shop.html">Shop new</a></div>
+    <div class="products" id="newGrid"></div>
+  </section>
+  <section class="band" style="background-image:linear-gradient(90deg,rgba(0,0,0,.45),rgba(0,0,0,.05)),url('images/run.jpg')">
+    <div>
+      <div class="kicker">Men's run</div>
+      <h2>Pace Shell</h2>
+      <a class="btn" href="product.html?id=pace">Shop the jacket</a>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-head"><h2>The uniform</h2></div>
+    <div class="tiles">
+      <a class="tile" href="product.html?id=cloudline" style="background-image:url('images/leggings.jpg');min-height:320px"><span>Cloudline</span></a>
+      <a class="tile" href="product.html?id=northshell" style="background-image:url('images/cream-jacket.jpg');min-height:320px"><span>Northshell</span></a>
+      <a class="tile" href="shop.html" style="background-image:url('images/gallery.jpg');min-height:320px"><span>Lookbook</span></a>
+    </div>
+  </section>
+  <script src="js/images.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script>
+    chrome();
+    document.querySelector(".hero-media").style.backgroundImage = `url('${img("images/yoga.jpg")}')`;
+    const tiles = document.querySelectorAll(".tile");
+    ["yoga.jpg","run.jpg","hoodie.jpg"].forEach((f,i)=> tiles[i] && (tiles[i].style.backgroundImage = `url('${img("images/"+f)}')`));
+    const more = document.querySelectorAll(".section .tile");
+    ["leggings.jpg","cream-jacket.jpg","gallery.jpg"].forEach((f,i)=> more[i] && (more[i].style.backgroundImage = `url('${img("images/"+f)}')`));
+    document.querySelector(".band").style.backgroundImage = `linear-gradient(90deg,rgba(0,0,0,.45),rgba(0,0,0,.05)),url('${img("images/run.jpg")}')`;
+    document.getElementById("newGrid").innerHTML = TINGLES.products.slice(0, 4).map(card).join("");
+  </script>
+</body>
+</html>

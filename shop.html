@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop — Tingles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Syne:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="shop-layout">
+    <aside class="filters">
+      <h3>Gender</h3>
+      <label><input type="radio" name="g" value="" checked /> All</label>
+      <label><input type="radio" name="g" value="women" /> Women</label>
+      <label><input type="radio" name="g" value="men" /> Men</label>
+      <label><input type="radio" name="g" value="accessories" /> Accessories</label>
+      <h3 style="margin-top:22px">Activity</h3>
+      <label><input type="radio" name="a" value="" checked /> All</label>
+      <label><input type="radio" name="a" value="yoga" /> Yoga</label>
+      <label><input type="radio" name="a" value="run" /> Run</label>
+      <label><input type="radio" name="a" value="train" /> Train</label>
+      <h3 style="margin-top:22px">Category</h3>
+      <label><input type="radio" name="c" value="" checked /> All</label>
+      <label><input type="radio" name="c" value="leggings" /> Leggings</label>
+      <label><input type="radio" name="c" value="jackets" /> Jackets</label>
+      <label><input type="radio" name="c" value="hoodies" /> Hoodies</label>
+      <label><input type="radio" name="c" value="shorts" /> Shorts</label>
+      <label><input type="radio" name="c" value="tops" /> Tops</label>
+    </aside>
+    <main>
+      <div class="toolbar">
+        <h1 style="font-size:40px;margin:0" id="title">Shop</h1>
+        <select id="sort">
+          <option value="featured">Featured</option>
+          <option value="price-asc">Price: low to high</option>
+          <option value="price-desc">Price: high to low</option>
+        </select>
+      </div>
+      <div class="products" id="grid"></div>
+    </main>
+  </div>
+  <script src="js/images.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script>
+    chrome();
+    const params = qs();
+    if (params.gender) document.querySelector(`input[name=g][value="${params.gender}"]`).checked = true;
+    if (params.activity) document.querySelector(`input[name=a][value="${params.activity}"]`).checked = true;
+    if (params.cat) document.querySelector(`input[name=c][value="${params.cat}"]`).checked = true;
+    function render() {
+      const g = document.querySelector("input[name=g]:checked").value;
+      const a = document.querySelector("input[name=a]:checked").value;
+      const c = document.querySelector("input[name=c]:checked").value;
+      let list = TINGLES.products.filter(p => (!g || p.gender===g) && (!a || p.activity===a) && (!c || p.cat===c));
+      if (params.sale) list = list.filter(p => p.compare);
+      const sort = document.getElementById("sort").value;
+      if (sort === "price-asc") list.sort((x,y)=>x.price-y.price);
+      if (sort === "price-desc") list.sort((x,y)=>y.price-x.price);
+      document.getElementById("title").textContent = g ? g[0].toUpperCase()+g.slice(1) : "Shop all";
+      document.getElementById("grid").innerHTML = list.map(card).join("") || "<p>Nothing in this edit yet.</p>";
+    }
+    document.querySelectorAll("input, #sort").forEach(el => el.addEventListener("change", render));
+    render();
+  </script>
+</body>
+</html>

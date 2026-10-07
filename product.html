@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product — Tingles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Syne:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="pdp" id="pdp"></div>
+  <section class="section"><div class="section-head"><h2>You may also like</h2></div><div class="products" id="also"></div></section>
+  <script src="js/images.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script>
+    chrome();
+    const p = TINGLES.products.find(x => x.id === qs().id) || TINGLES.products[0];
+    document.title = p.name + " — Tingles";
+    let size = "M", qty = 1;
+    const sizes = p.cat === "accessories" ? ["One"] : ["XS","S","M","L","XL"];
+    size = sizes[2] || sizes[0];
+    document.getElementById("pdp").innerHTML = `
+      <div class="pdp-gallery" style="background-image:url('${img(p.img)}')"></div>
+      <div>
+        <div class="kicker">${p.gender} · ${p.activity}</div>
+        <h1>${p.name}</h1>
+        <div class="price" style="font-size:18px">${p.compare?`<s>${money(p.compare)}</s> `:""}${money(p.price)}</div>
+        <p class="lede">${p.blurb}</p>
+        <div class="kicker" style="margin-top:18px">Color</div>
+        <div class="swatches" style="margin:10px 0 6px">${p.colors.map(c=>`<span class="swatch" title="${c}" style="width:22px;height:22px;background:${c==="Black"?"#161616":c==="Sage"?"#8fa08a":c==="Sand"?"#d8cbb8":c==="Cream"||c==="Bone"?"#f3efe8":c==="Charcoal"?"#4d5156":c==="Espresso"?"#3b2a24":c==="Navy"?"#1d2a3a":"#ccc"}"></span>`).join("")} <span style="font-size:14px;color:var(--muted)">${p.colors.join(" / ")}</span></div>
+        <div class="kicker">Size</div>
+        <div class="sizes" id="sizes">${sizes.map(s=>`<button class="size ${s===size?"on":""}" data-size="${s}">${s}</button>`).join("")}</div>
+        <div class="qty"><button id="minus">−</button><span id="qty">1</span><button id="plus">+</button></div>
+        <button class="btn" id="add" style="width:100%">Add to bag</button>
+        <p style="color:var(--muted);font-size:14px;margin-top:18px">Free shipping over $150. Free returns within 30 days. Fabric is a Tingles knit — not a licensed copy of any other brand.</p>
+      </div>`;
+    document.getElementById("sizes").onclick = e => {
+      if (!e.target.dataset.size) return;
+      size = e.target.dataset.size;
+      document.querySelectorAll(".size").forEach(b => b.classList.toggle("on", b.dataset.size===size));
+    };
+    document.getElementById("minus").onclick = () => { qty = Math.max(1, qty-1); document.getElementById("qty").textContent = qty; };
+    document.getElementById("plus").onclick = () => { qty++; document.getElementById("qty").textContent = qty; };
+    document.getElementById("add").onclick = () => addToCart(p, size, qty);
+    document.getElementById("also").innerHTML = TINGLES.products.filter(x => x.id!==p.id && x.gender===p.gender).slice(0,4).map(card).join("");
+  </script>
+</body>
+</html>
