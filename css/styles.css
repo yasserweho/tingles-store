@@ -34,6 +34,12 @@ header.site.scrolled { border-bottom-color: var(--line); }
 .hero-wrap { position: relative; }
 .slide { min-height: 78vh; background: #ddd center/cover no-repeat; display: none; position: relative; }
 .slide.on { display: flex; align-items: flex-end; }
+.slide.fullbody { background: #f4f1ee; }
+.slide.fullbody.on { display: grid; grid-template-columns: .9fr 1.1fr; align-items: end; }
+.slide.fullbody img { width: 100%; height: 78vh; object-fit: contain; object-position: center bottom; }
+.slide-copy.dark { color: #140f0f; text-shadow: none; }
+.btn.dark { background: #111; color: #fff; border-color: #111; }
+.btn.dark.ghost { background: transparent; color: #111; border-color: #111; }
 .slide-copy { color: #fff; padding: 0 56px 72px; max-width: 640px; text-shadow: 0 1px 12px rgba(0,0,0,.25); }
 .slide-copy h1 { font-size: clamp(42px, 5vw, 68px); line-height: .95; margin: 0 0 16px; font-weight: 600; letter-spacing: -0.03em; }
 .cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
