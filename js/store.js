@@ -32,7 +32,6 @@ function chrome(active="") {
     <div class="announce">Free shipping on orders over $150 · <a href="shop.html">Shop the October edit</a></div>
     <header class="site">
       <div class="nav">
-        <a class="logo" href="index.html">TINGLES</a>
         <nav class="nav-left">
           ${links.map(([l,h]) => `<div class="nav-item"><a class="nav-link" href="${h}">${l}</a>
             <div class="mega"><div class="mega-grid">
@@ -44,17 +43,13 @@ function chrome(active="") {
           </div>`).join("")}
         </nav>
         <div class="nav-right">
+          <a class="logo" href="index.html">TINGLES.com</a>
           <button class="icon-btn menu-toggle" aria-label="Menu">Menu</button>
           <button class="icon-btn" id="searchBtn" aria-label="Search">Search</button>
           <a class="icon-btn" href="about.html" aria-label="Account">Account</a>
           <a class="icon-btn" href="cart.html" aria-label="Bag">Bag <span class="bag-count"></span></a>
         </div>
       </div>
-      <div class="search-panel" id="searchPanel">
-        <input id="searchInput" placeholder="Search leggings, jackets, run..." />
-        <div id="searchHits"></div>
-      </div>
-    </header>
       <div class="search-panel" id="searchPanel">
         <input id="searchInput" placeholder="Search leggings, jackets, run..." />
         <div id="searchHits"></div>

@@ -17,7 +17,7 @@ img { max-width: 100%; display: block; }
 header.site { position: sticky; top: 0; z-index: 40; background: #fff; border-bottom: 1px solid transparent; }
 header.site.scrolled { border-bottom-color: var(--line); }
 .nav { height: var(--nav); display: flex; align-items: center; gap: 28px; padding: 0 28px; }
-.logo { font-weight: 700; letter-spacing: .18em; font-size: 18px; }
+.logo { font-weight: 700; letter-spacing: .08em; font-size: 16px; }
 .nav-left { display: flex; align-items: center; gap: 22px; flex: 1; }
 .nav-right { display: flex; align-items: center; gap: 16px; margin-left: auto; }
 .nav-link { font-size: 14px; font-weight: 500; padding: 22px 0; display: inline-block; }
