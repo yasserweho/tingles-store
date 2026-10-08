@@ -104,10 +104,41 @@ footer a, footer p { color: #555; font-size: 14px; line-height: 1.8; }
 .search-panel input { width: min(720px, 100%); border: 0; border-bottom: 1px solid #111; font-size: 22px; padding: 8px 0; outline: none; }
 .about { max-width: 860px; margin: 0 auto; padding: 48px 20px 80px; }
 .about p { font-size: 18px; line-height: 1.7; color: #333; }
-@media (max-width: 980px) {
+@media (max-width: 800px) {
+  .nav { padding: 0 12px; gap: 8px; }
+  .logo { font-size: 15px; letter-spacing: 0; }
+  .icon-btn { font-size: 13px; padding: 4px; }
   .nav-left { display: none; }
   .menu-toggle { display: inline-flex; }
-  .pair, .acts, .products, .pdp, .shop-layout, .foot-grid { grid-template-columns: 1fr 1fr; }
-  .slide-copy { padding: 0 20px 64px; }
-  .story { min-height: 320px; }
+  .slide { min-height: 68vh; }
+  .slide.fullbody.on {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    background: #f4f1ee;
+  }
+  .slide.fullbody img {
+    order: -1;
+    width: 100%;
+    height: 62vh;
+    max-height: 520px;
+    object-fit: cover;
+    object-position: center 12%;
+  }
+  .slide.fullbody .slide-copy,
+  .slide-copy { padding: 18px 16px 24px; max-width: none; }
+  .slide-copy h1 { font-size: 34px; }
+  .pair, .acts, .pdp, .shop-layout, .foot-grid { grid-template-columns: 1fr; }
+  .products { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .story { min-height: 220px; }
+  .story span { font-size: 22px; left: 16px; bottom: 16px; }
+  .band { min-height: 260px; padding: 20px; margin: 8px; }
+  .band h2 { font-size: 34px; }
+  .rail-head, .section-head { padding: 20px 16px 8px; }
+  .rail { padding: 0 16px 20px; }
+  .rail .card { min-width: 72vw; }
+  .shop-layout, .pdp { padding: 16px; gap: 16px; }
+  .pdp-gallery { min-height: 360px; }
+  .dots { bottom: 10px; }
 }
